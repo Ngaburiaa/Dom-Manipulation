@@ -26,9 +26,34 @@ document.addEventListener("DOMContentLoaded", function () {
             movieNameSpan.replaceWith(input);
 
              const saveBtn = document.createElement("span");
+
+
             saveBtn.textContent = "Save";
             saveBtn.classList.add("save");
+
+              saveBtn.style.cssText = `
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-left: 8px;
+        transition: background-color 0.3s;
+      `;
+
+      // Add hover effects to save button
+      saveBtn.addEventListener("mouseenter", () => {
+        saveBtn.style.backgroundColor = "#45a049";
+      });
+      saveBtn.addEventListener("mouseleave", () => {
+        saveBtn.style.backgroundColor = "#4CAF50";
+      });
+
             e.target.replaceWith(saveBtn);
+
+
         } else if (e.target.className === "save") {
             const li = e.target.parentElement.parentElement; 
             const input = li.querySelector("input[type='text']");
@@ -47,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
             
             input.replaceWith(movieNameSpan);
 
-            
             const editBtn = document.createElement("span");
             editBtn.textContent = "Edit";
             editBtn.classList.add("edit");
